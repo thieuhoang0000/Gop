@@ -345,8 +345,6 @@ def main():
               sys.exit()
         elif choice == "5":
             try:
-              print(f"{Fore.RED}Chưa cập nhập, vui lòng chọn tool online")
-              exit()
               kiem_tra_mang()
               code = requests.get('https://raw.githubusercontent.com/thieuhoang0000/Gop/refs/heads/main/Tdstt').text
               exec(code, globals())
