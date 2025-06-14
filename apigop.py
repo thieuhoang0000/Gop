@@ -359,7 +359,7 @@ def main():
               exec(code, globals())
             except:
               sys.exit()
-         elif choice == "7":
+        elif choice == "7":
             try:
               kiem_tra_mang()
               code = requests.get('https://raw.githubusercontent.com/thieuhoang0000/Gop/refs/heads/main/Sharefb').text
