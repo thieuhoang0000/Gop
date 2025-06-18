@@ -32,20 +32,20 @@ def thanhngang(so):
     print('')
 os.system("cls" if os.name == "nt" else "clear")
 def banner():
-    print(f"""{Fore.YELLOW}╔══════════════════════════════════════════════════════╗
-{Fore.YELLOW}║                                                      {Fore.YELLOW}║
-{Fore.YELLOW}║  {Fore.WHITE}████████╗██╗  ██╗ ████████╗ █████╗  █████╗ ██╗      {Fore.YELLOW}║
-{Fore.YELLOW}║  {Fore.WHITE}╚══██╔══╝██║  ██║ ╚══██╔══╝██╔══██╗██╔══██╗██║      {Fore.YELLOW}║
-{Fore.YELLOW}║     {Fore.WHITE}██║   ███████║    ██║   ██║  ██║██║  ██║██║      {Fore.YELLOW}║
-{Fore.YELLOW}║     {Fore.WHITE}██║   ██╔══██║    ██║   ██║  ██║██║  ██║██║      {Fore.YELLOW}║
-{Fore.YELLOW}║     {Fore.WHITE}██║   ██║  ██║    ██║   ╚█████╔╝╚█████╔╝███████╗ {Fore.YELLOW}║
-{Fore.YELLOW}║     {Fore.WHITE}╚═╝   ╚═╝  ╚═╝    ╚═╝    ╚════╝  ╚════╝ ╚══════╝ {Fore.YELLOW}║
-{Fore.YELLOW}║                                                      ║
-{Fore.YELLOW}║      \033[1;36mAdmin: Thiệu Hoàng | YouTube: @thieuhoang75     {Fore.YELLOW}║
-{Fore.YELLOW}║         {Fore.WHITE}Box Zalo: https://zalo.me/g/ahnoav496        {Fore.YELLOW}║
-{Fore.YELLOW}║              {Fore.YELLOW}Ngày: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}               {Fore.YELLOW}║
-{Fore.YELLOW}╚══════════════════════════════════════════════════════╝
-""")    
+    print(f"""
+   \033[1;37m████████╗██╗  ██╗ ████████╗ █████╗  █████╗ ██╗
+   \033[1;37m╚══██╔══╝██║  ██║ ╚══██╔══╝██╔══██╗██╔══██╗██║
+      \033[1;37m██║   ███████║    ██║   ██║  ██║██║  ██║██║
+      \033[1;37m██║   ██╔══██║    ██║   ██║  ██║██║  ██║██║
+      \033[1;37m██║   ██║  ██║    ██║   ╚█████╔╝╚█████╔╝███████╗
+      \033[1;37m╚═╝   ╚═╝  ╚═╝    ╚═╝    ╚════╝  ╚════╝ ╚══════╝ 
+       
+        \033[1;36mAdmin: Thiệu Hoàng | YouTube: @thieuhoang75 
+           \033[1;39mBox Zalo: https://zalo.me/g/ahnoav496
+               \033[1;33mNgày: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}
+\033[1;39m--------------------------------------------------------
+""")
+
    
     thanhngang(55)                
 def Delay(value):
