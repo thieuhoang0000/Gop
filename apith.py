@@ -104,7 +104,7 @@ def generate_random_key(length=8):
 def generate_key(is_admin=False):
     """Tạo key, admin key không hết hạn."""
     if is_admin:
-        return "THTOOLKEYVIP"  # Key admin không có ngày hết hạn
+        return "THTOOLKEY"  # Key admin không có ngày hết hạn
     else:
         return f"THTOOL-{generate_random_key(10)}"  # Key user
 
@@ -133,9 +133,9 @@ def clean_expired_key():
                 key_time = datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")
                 key_date = key_time.date()  # Ngày tạo key
                 # Nếu key không phải admin và đã qua ngày mới (00:00), bỏ qua
-                if not key.startswith("THTOOLKEYVIP") and key_date == current_date:
+                if not key.startswith("THTOOLKEY") and key_date == current_date:
                     updated_lines.append(line)
-                elif key.startswith("THTOOLKEYVIP"):  # Giữ lại key admin
+                elif key.startswith("THTOOLKEY"):  # Giữ lại key admin
                     updated_lines.append(line)
             except:
                 continue
@@ -149,7 +149,7 @@ def is_valid_key(key, expected_key):
     """Kiểm tra key có hợp lệ không."""
     clean_expired_key()  # Dọn dẹp key hết hạn trước
     
-    if key == "THTOOLKEYVIP":
+    if key == "THTOOLKEY":
         return True  # Key admin hợp lệ mọi lúc
     elif key == expected_key:  # So sánh với key đã tạo
         return True
@@ -172,7 +172,7 @@ def check_stored_key():
                 stored_key = stored_key.strip()
                 key_time = datetime.strptime(timestamp.strip(), "%Y-%m-%d %H:%M:%S")
                 key_date = key_time.date()  # Ngày tạo key
-                if stored_key == "THTOOLKEYVIP":
+                if stored_key == "THTOOLKEY":
                     return stored_key, stored_key  # Key admin luôn hợp lệ
                 elif stored_key.startswith("NHM-"):
                     if key_date == current_date:  # Key chỉ hợp lệ trong cùng ngày
@@ -183,7 +183,7 @@ def check_stored_key():
 
 # ======= Chạy Tool =======
 try:
-    admin_key = "THTOOLKEYVIP"
+    admin_key = "THTOOLKEY"
     
     # Kiểm tra xem có key nào còn hạn trong file không
     stored_key, user_key = check_stored_key()
@@ -218,9 +218,11 @@ try:
         time.sleep(2)  # Chờ 3 giây trước khi vào tool
         print("\033[F\033[K" * 4, end="")
 
+
 except Exception as e:
     console.print(f"[bold red]ErrolKey: {e}[/bold red]")
 os.system("cls" if os.name == "nt" else "clear")
+
 
 def banner():
     print(f"""
@@ -254,14 +256,15 @@ def show_menu():
     table.add_column("Mô Tả", style="red")
     table.add_column("Trạng Thái", style="cyan")
 
-    table.add_row("1", "GOLIKE TIKTOK", "ADB or Auto","HOẠT ĐỘNG")    
-    table.add_row("2", "TWITTER", "Cookie","HOẠT ĐỘNG")
-    table.add_row("3", "TTC FACEBOOK", "Cookie","HOẠT ĐỘNG")
-    table.add_row("4", "TDS FACEBOOK", "Cookie","HOẠT ĐỘNG")
-    table.add_row("5", "TDS TIKTOK", "Auto click","HOẠT ĐỘNG")
-    table.add_row("6", "SPAM ", "SMS","Hoạt động")
+    table.add_row("1", "GOLIKE TIKTOK", "ADB OR AUTO","HOẠT ĐỘNG")    
+    table.add_row("2", "TWITTER", "COOKIE","HOẠT ĐỘNG")
+    table.add_row("3", "TTC FACEBOOK", "COOKIE","HOẠT ĐỘNG")
+    table.add_row("4", "TDS FACEBOOK", "COOKIE","HOẠT ĐỘNG")
+    table.add_row("5", "TDS TIKTOK", "AUTO CLICK","HOẠT ĐỘNG")
+    table.add_row("6", "SPAM ", "SMS","HOẠT ĐỘNG")
     table.add_row("7", "SHARE ẢO", "SHARE ẢO FB","HOẠT ĐỘNG")
     table.add_row("8", "REG ", "REG FB","HOẠT ĐỘNG")
+    table.add_row("9", "NUÔI TIKTOK", "COOKIE","HOẠT ĐỘNG")
     console.print(table)
 def main():
     while True:
@@ -332,6 +335,13 @@ def main():
              exec(code, globals())
            except:
              sys.exit()     
+        elif choice == "9":
+            try:
+              kiem_tra_mang()
+              code = requests.get('https://raw.githubusercontent.com/thieuhoang0000/Gop/refs/heads/main/obf-nuoi.py').text
+              exec(code, globals())
+            except:
+              sys.exit()  
         else:
             console.print("[bold red]Lựa chọn không hợp lệ![/]")
             time.sleep(1)
